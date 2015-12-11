@@ -1,0 +1,11 @@
+var voteObj;
+var currentData; 
+
+submit.addEventListener('click', function upVote (e){
+
+                  voteObj = {"FoodItem", numOfStars};
+                  window.localStorage.voteObj = JSON.stringify(voteObj);
+              });
+
+currentData = JSON.parse(window.localStorage.voteObj);
+
