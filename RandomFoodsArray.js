@@ -1,9 +1,9 @@
 function ArrayElementRandomizer(array) {
   var m = array.length, t, i;
 
-   //For the length of the array 
+//For the length of the array 
   while (m) {
-  //assign a random number mutiplied by the length of the array-1 to the variable i; 	
+//assign a random number mutiplied by the length of the array-1 to the variable i; 	
     i = Math.floor(Math.random() * m--);
 
 //assign the last element of the array to t
