@@ -13,6 +13,21 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+        <style>
+            /* Prevents slides from flashing */
+            #slides {
+                display:none;
+            }
+        </style>
+        <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 	</head>
 	<body class="loading">
 		<div id="wrapper">
@@ -22,17 +37,70 @@
 
 				<!-- Header -->
 					<header id="header">
-						<h1>Adam Jensen</h1>
-						<p>Security Chief &nbsp;&bull;&nbsp; Cyborg &nbsp;&bull;&nbsp; Never asked for this</p>
-						<nav>
-							<ul>
-								<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-								<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-								<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
-								<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
-								<li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
-							</ul>
-						</nav>
+						<!--<h1>Adam Jensen</h1>-->
+						<!--<p>Security Chief &nbsp;&bull;&nbsp; Cyborg &nbsp;&bull;&nbsp; Never asked for this</p>-->
+						<!--<nav>-->
+							<!--<ul>-->
+								<!--<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>-->
+								<!--<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>-->
+								<!--<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>-->
+								<!--<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>-->
+								<!--<li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>-->
+							<!--</ul>-->
+						<!--</nav>-->
+
+						<!--Stage 1-->
+						<div id="div_1">
+							<div id="div_1_1">
+
+                                <span>
+                                    <!--<select name="form_breakfast" form="form_breakfast">-->
+                                    <h2>Breakfast:</h2>
+                                    <select class="form-control" name="form_breakfast">
+                                        <option value="Waffles">Waffles</option>
+                                        <option value="Bacon">Bacon</option>
+                                        <option value="Eggs">Eggs</option>
+                                        <option value="Cereal">Cereal</option>
+                                    </select>
+                                </span>
+
+                                <br>
+
+                                <span>
+                                    <h2>Lunch:</h2>
+                                    <!--<select name="form_lunch" form="form_lunch">-->
+                                    <select class="form-control" name="form_lunch">
+                                        <option value="Chicken">Chicken</option>
+                                        <option value="Sandwich">Sandwich</option>
+                                        <option value="Pizza">Pizza</option>
+                                        <option value="Noodles">Noodles</option>
+                                    </select>
+                                </span>
+                                <br>
+							</div>
+							<div id="div_1_2">
+								<button type="button" class="btn btn-danger" onclick="changeState(2)">Battle!</button>
+							</div>
+						</div>
+
+						<!--Stage 2-->
+						<div id="div_2">
+							<div id="div_2_1">
+								<h1>BATTLE!</h1>
+							</div>
+						</div>
+
+						<!--Stage 3-->
+						<div id="div_3">
+							<div id="div_3_1">
+								<h1>The winner is...</h1>
+							</div>
+							<div id="div3_2">
+                                <h2>Chicken and waffles</h2>
+                                <img src="assets/img/fried-chicken.jpg" style="width:200px;height:200px;">
+                                <img src="assets/img/waffles.jpg" style="width:200px;height:200px;">
+							</div>
+						</div>
 					</header>
 
 				<!-- Footer -->
@@ -43,10 +111,52 @@
 			</div>
 		</div>
 		<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+
 		<script>
-			window.onload = function() { document.body.className = ''; }
+			window.onload = function() { document.body.className = ''; update();}
 			window.ontouchmove = function() { return false; }
 			window.onorientationchange = function() { document.body.scrollTop = 0; }
+
+			var stage = 1;
+
+			function update(){
+				switch(stage) {
+					case 1:
+                        $( "#div_1" ).show();
+                        $( "#div_2" ).hide();
+                        $( "#div_3" ).hide();
+						break;
+                    case 2:
+                        $( "#div_1" ).hide();
+                        $( "#div_2" ).show();
+                        $( "#div_3" ).hide();
+                        setTimeout(function(){changeState(3);}, 3000);
+                        break;
+                    case 3:
+                        $( "#div_1" ).hide();
+                        $( "#div_2" ).hide();
+                        $( "#div_3" ).show();
+                        $( "#div3_2" ).hide();
+
+                        setTimeout(function(){$( "#div3_2" ).show();}, 1000);
+                        break;
+					default:
+                        return;
+				}
+			} //update()
+
+            function changeState(newstate){
+                stage = newstate;
+                update();
+            } //changeState
+
+//            $(function(){
+//                $("#slides").slidesjs({
+//                    width: 940,
+//                    height: 528
+//                });
+//            });
+
 		</script>
 	</body>
 </html>
