@@ -1,7 +1,7 @@
 ### Hack the dot - Bruchbattle
 
 
- - Description : The idea behind BrunchBattle.Live is the battle between breakfast and lunch (hence "brunch") and the kinds of food that they bring to the table. You list of food categories for breakfast and lunch. You will select food category for break and lunch and you will hit the battle button on the page, it'll randomly pick a food item from the breakfast and lunch menus, making a mashup plate for you to eat. 
+ - Description : The idea behind BrunchBattle.Live is the epic battle of breakfast vs lunch called "The Great Brunch War" and the different variations of food that they each bring. The program will randomize different items from both meals and give the users a combination of choices from both categories. This will be done when the user hits the battle button on the page and the page will calculate the outcome of the battle, thus creating a delicious mashup plate for them to eat. 
 
  
  ### Team members
